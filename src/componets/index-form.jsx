@@ -6,8 +6,8 @@ const IndexForme = component$(() => {
     () => {
       console.log('useVisibleTask');
       kwesforms.init();
-    },
-    { strategy: 'document-ready' }
+    }
+    // { strategy: 'document-ready' }
   );
 
   return (
