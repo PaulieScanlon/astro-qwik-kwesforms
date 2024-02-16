@@ -1,0 +1,44 @@
+---
+
+---
+
+<html>
+  <body>
+    <div
+      style={{
+        height: '100vh',
+      }}
+    >
+      <h1>Test</h1>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <form
+        id='kwes-form'
+        class='kwes-form'
+        no-reload
+        action='https://kwesforms.com/api/foreign/forms/1sp8Iy1rGETSLFGKqYVR'
+      >
+        <label for='name'>Your Name</label>
+        <input type='text' id='name' autocomplete='off' name='name' rules='required|max:255' />
+
+        <button type='submit'>Submit</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    let scriptLoaded = false;
+    const observer = new IntersectionObserver(function (entries) {
+      if (entries.length > 0 && entries[0].isIntersecting) {
+        if (!scriptLoaded) {
+          const scriptElement = document.createElement('script');
+          scriptElement.src = 'https://kwesforms.com/v2/kwes-script.js';
+          document.body.appendChild(scriptElement);
+        }
+        scriptLoaded = true;
+      }
+    });
+
+    observer.observe(document.querySelector('#kwes-form'));
+  </script>
+</html>
