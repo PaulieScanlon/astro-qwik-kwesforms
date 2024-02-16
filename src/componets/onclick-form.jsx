@@ -18,7 +18,7 @@ const OnsubmitForm = component$(() => {
       onClick$={handleClick}
     >
       <label for='name'>Your Name</label>
-      <input type='text' name='name' rules='required|max:5' />
+      <input type='text' id='name' autocomplete='off' name='name' rules='required|max:5' />
 
       <button type='submit' disabled={!hasLoaded.value}>
         Submit
