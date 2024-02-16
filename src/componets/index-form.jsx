@@ -1,11 +1,39 @@
 import { component$, useVisibleTask$ } from '@builder.io/qwik';
 import kwesforms from 'kwesforms';
 
-const IndexForme = component$(() => {
-  useVisibleTask$(
-    () => {
-      console.log('useVisibleTask');
+const initializeKwesforms = async () => {
+  try {
+    await new Promise((resolve, reject) => {
       kwesforms.init();
+      resolve('Kwesforms initialized successfully');
+    });
+  } catch (error) {
+    throw new Error(`Error initializing Kwesforms: ${error}`);
+  }
+};
+
+const IndexForme = component$(() => {
+  // const initializeKwesforms = $(async () => {
+  //   try {
+  //     await new Promise((resolve, reject) => {
+  //       kwesforms.init();
+  //       resolve('Kwesforms initialized successfully');
+  //     });
+  //   } catch (error) {
+  //     throw new Error(`Error initializing Kwesforms: ${error}`);
+  //   }
+  // });
+
+  useVisibleTask$(
+    async () => {
+      console.log('useVisibleTask');
+      // kwesforms.init();
+      try {
+        await initializeKwesforms();
+        console.log('Kwesforms initialized successfully');
+      } catch (error) {
+        console.error(error.message);
+      }
     }
     // { strategy: 'document-ready' }
   );
