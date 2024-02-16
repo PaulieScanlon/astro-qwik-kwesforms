@@ -1,15 +1,6 @@
-import { component$, useVisibleTask$ } from '@builder.io/qwik';
-import kwesforms from 'kwesforms';
+import { component$ } from '@builder.io/qwik';
 
-const IndexForm = component$(() => {
-  useVisibleTask$(
-    () => {
-      console.log('useVisibleTask');
-      kwesforms.init();
-    },
-    { strategy: 'document-ready' }
-  );
-
+const ScriptForm = component$(() => {
   return (
     <form class='kwes-form' no-reload action='https://kwesforms.com/api/foreign/forms/1sp8Iy1rGETSLFGKqYVR'>
       <label for='name'>Your Name</label>
@@ -20,4 +11,4 @@ const IndexForm = component$(() => {
   );
 });
 
-export default IndexForm;
+export default ScriptForm;
